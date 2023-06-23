@@ -72,16 +72,15 @@ struct ContentView: View {
             
             // MARK: MapPolyline
             // Use MapPolyline to draw the route
-            
             if let route {
                 MapPolyline(route)
                     .stroke(gradient, style: stroke)
             }
-            
         }
         .onAppear {
             locationManager.checkIfLocationServicesIsEnabled()
         }
+        
         // MARK: mapStyle
         // .standard renders default map view
         // .imagery renders sattelite view
@@ -103,7 +102,6 @@ struct ContentView: View {
                     BeanTownButtons(position: $position, searchResults: $searchResults, visibleRegion: visibleRegion)
                         .padding(.top)
                 }
-                    
                 Spacer()
             }
             .background(.thinMaterial)
@@ -111,7 +109,6 @@ struct ContentView: View {
         .onChange(of: searchResults) {
             position = .automatic
         }
-        
         .onChange(of: selectedResult) {
             getDirections()
         }
@@ -123,6 +120,8 @@ struct ContentView: View {
             visibleRegion = context.region
         }
         
+        // MARK: mapControls
+        // Content will be placed in default positions
         .mapControls {
             MapUserLocationButton()
             MapCompass()
@@ -130,12 +129,15 @@ struct ContentView: View {
         }
     }
     
+    // MARK: getDirections()
+    // Calculates a route from user location to selectedResult
     func getDirections() {
         route = nil
         guard let selectedResult else { return }
+        guard let currentLocation = locationManager.manager?.location?.coordinate else { return }
         
         let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: locationManager.manager?.location?.coordinate ?? .parking))
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: currentLocation))
         request.destination = selectedResult
         
         Task {
@@ -144,8 +146,6 @@ struct ContentView: View {
             route = response?.routes.first
         }
     }
-    
-
 }
 
 #Preview {

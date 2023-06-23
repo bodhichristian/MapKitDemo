@@ -30,7 +30,6 @@ extension CLLocationCoordinate2D {
         longitude: -71.068369)
 }
 
-
 extension MKCoordinateRegion {
     static let boston = MKCoordinateRegion(
         center: CLLocationCoordinate2D(

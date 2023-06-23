@@ -40,6 +40,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA7F1DBF2A46358D00353646 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA9331862A449B21002EE6E2 /* ContentView.swift */,
+				AAEF6FC32A45E316003B6977 /* ItemInfoView.swift */,
+				AA9331922A44A16E002EE6E2 /* BeanTownButtons.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA7F1DC02A4635C400353646 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAEF6FC52A45F1CE003B6977 /* LocationManager.swift */,
+				AA9331942A44A1FC002EE6E2 /* SampleCoordinates.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AA9331782A449B21002EE6E2 = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				AA9331842A449B21002EE6E2 /* MapKitDemoApp.swift */,
-				AA9331862A449B21002EE6E2 /* ContentView.swift */,
-				AAEF6FC32A45E316003B6977 /* ItemInfoView.swift */,
-				AA9331922A44A16E002EE6E2 /* BeanTownButtons.swift */,
-				AAEF6FC52A45F1CE003B6977 /* LocationManager.swift */,
-				AA9331942A44A1FC002EE6E2 /* SampleCoordinates.swift */,
+				AA7F1DC02A4635C400353646 /* Models */,
+				AA7F1DBF2A46358D00353646 /* Views */,
 				AA9331882A449B22002EE6E2 /* Assets.xcassets */,
 				AA93318A2A449B22002EE6E2 /* Preview Content */,
 			);

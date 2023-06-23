@@ -54,5 +54,8 @@ struct ItemInfoView: View {
 }
 
 #Preview {
-    ItemInfoView(selectedResult: MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 42.360431, longitude: -71.055930))))
+    ItemInfoView(selectedResult: MKMapItem(
+        placemark: MKPlacemark(
+            coordinate: .parking))
+    )
 }
