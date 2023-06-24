@@ -12,13 +12,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     var manager: CLLocationManager?
     
     func checkIfLocationServicesIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
             manager = CLLocationManager()
             manager?.delegate = self
             manager?.desiredAccuracy = kCLLocationAccuracyBest
-        } else {
-            print("Location Services Disabled")
-        }
     }
     
     private func checkLocationAuthorization() {
