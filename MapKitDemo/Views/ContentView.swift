@@ -18,6 +18,7 @@ struct ContentView: View {
     @State private var selectedResult: MKMapItem?
     @State private var route: MKRoute?
     
+    // MARK: Route Style Params for MapPolyline
     let gradient = LinearGradient(
         colors: [.red, .green, .blue],
         startPoint: .leading,
@@ -85,7 +86,7 @@ struct ContentView: View {
         // .standard renders default map view
         // .imagery renders sattelite view
         // .hybrid renders sattelite view with road and POI labels
-        .mapStyle(.standard(elevation: .realistic, pointsOfInterest: .all))
+        .mapStyle(.hybrid(elevation: .realistic, pointsOfInterest: .all))
         
         // MARK: safeAreaInset
         // Ensures app's UI doesn't obscure any added content or system provided controls--i.e. Apple Maps logo, Legal link
@@ -123,8 +124,11 @@ struct ContentView: View {
         // MARK: mapControls
         // Content will be placed in default positions
         .mapControls {
+            // Tap to center map on user's location
             MapUserLocationButton()
+            // Appears when map has been rotated by user
             MapCompass()
+            // Appears while user is zooming in or out
             MapScaleView()
         }
     }
